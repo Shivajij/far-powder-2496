@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovado</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #navbar {
+            width: 100%;
+            height: 80px;
+            border: 1px solid;
+        }
+
+        #poster {
+            width: 100%;
+            height: 750px;
+            position: relative;
+        }
+
+        #poster_text {
+            text-align: center;
+            position: absolute;
+            margin-top: -400px;
+            margin-left: 600px;
+            z-index: 1;
+        }
+
+        #poster_text>h1 {
+            font-size: 52px;
+            line-height: 68px;
+            color: rgba(255, 255, 255, 0.91);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        #poster_text>h4 {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 29px;
+            color: rgb(255, 255, 255, 0.75);
+            margin-top: -20px;
+            margin-bottom: 35px;
+        }
+
+        #poster_text>a {
+            background-color: transparent;
+            padding: 14px 35px;
+            border: 1px solid white;
+            border-radius: 1px;
+            color: white;
+            font-size: 14px;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+
+        #background {
+            width: 100%;
+            height: 560px;
+            background-color: rgba(205, 198, 198, 0.366);
+            position: absolute;
+        }
+
+        #poster_text>a:hover {
+            cursor: pointer;
+            outline: 1px solid white;
+        }
+
+        #items {
+            width: 70%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div id="navbar">
+        <h1>navbar</h1>
+    </div>
+    <!-- poster -->
+
+    <div id="poster">
+        <div id="background"></div>
+        <img id="poster_img" src="https://cdn.shopify.com/s/files/1/0627/7388/7215/files/13122-2_1500x.jpg?v=1645120932"
+            alt="">
+    </div>
+    <div id="poster_text">
+        <h1>NEW NEW NEW</h1>
+        <h4>Check out the new beauties!</h4>
+        <a href="">Shop All</a>
+    </div>
+    <!-- list items -->
+    <div id="items">
+
+    </div>
+    <!-- gridboxes with link -->
+    <div id="social">
+        <div id="social_text">
+            <h1 id="shop">SHOP THE FEED</h1>
+            <p id="pc">Tag us on instagram @LovodaShop or #Lovoda</p>
+        </div>
+        <div id="social_img">
+
+        </div>
+        <div id="load_more">Load More</div>
+    </div>
+    <!-- footer
+ -->
+    <div id="footer"></div>
+</body>
+
+</html>
+<script>
+
+
+    let indexdata = async () => {
+        let res = await fetch("http://localhost:3000/api/productData")
+        let data = await res.json()
+        console.log(data)
+        item_append(data)
+    }
+    indexdata()
+    let items = document.getElementById("items")
+    let item_append = (data) => {
+        items.innerHTML = ""
+        data.forEach((el) => {
+            let card = document.createElement("div")
+            let img_box = document.createElement("div");
+            img_box.setAttribute("class", "img-box");
+
+            let img = document.createElement("img");
+            img.src = el.image;
+            img.loading = "lazy";
+            img_box.append(img);
+
+            let title = document.createElement("a");
+            title.innerText = el.head;
+            title.setAttribute("class", "prod-title");
+
+            card.addEventListener("mouseover", (e) => {
+                img.src = el.hovimage;
+                title.style.borderBottom = "1px solid #121212";
+            });
+            card.addEventListener("mouseout", (e) => {
+                img.src = el.image;
+                title.style.borderBottom = "1px solid transparent";
+            });
+
+            let price = document.createElement("p");
+            price.innerText = `$${el.price.toFixed(2)}`;
+            price.setAttribute("class", "prod-price");
+
+            card.append(img_box, title)
+            items.append(card)
+        });
+    }
+    let indexdata_social = async () => {
+        let res = await fetch("http://localhost:3000/api/gridData")
+        let data = await res.json()
+        console.log(data)
+        social_img_append(data)
+    }
+    indexdata_social()
+    let social_img = document.getElementById("social_img")
+    let social_img_append = (data) => {
+        data.forEach((el) => {
+            let div = document.createElement("div");
+            div.addEventListener("click", () => {
+                window.location.href = "";
+            });
+
+            let img = document.createElement("img");
+            img.src = el.img;
+            img.setAttribute("class", "grid-img");
+
+            div.append(img);
+            social_img.append(div);
+        })
+    }
+
+    let indexdata_load = async () => {
+        let res = await fetch("http://localhost:3000/api/load_more")
+        let data = await res.json()
+        console.log(data)
+        social_img_append(data)
+    }
+    let load_more = document.getElementById("load_more")
+    load_more.onclick = () => {
+        indexdata_load()
+    }
+
+
+
+</script>
