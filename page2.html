@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     #cont1{
+        /* height: ; */
+        border:solid 1px red;
+        width: 80%;
+        margin: auto;
+        display: flex;
+
+     }
+     #chil1{
+      height: 100%;
+        border:solid 1px red;
+        width: 60%;
+     }
+   
+     #chil2{
+      height: 100%;
+        border:solid 1px rgb(40, 19, 235);
+        width: 40%;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        color: grey;
+     }
+     #gchi1{
+     height: 55%;
+     width: 100%;
+     border:solid 1px rgb(151, 222, 20);
+
+     }
+     #gchi1 img{
+        width: 100%;
+        /* width: 100%; */
+        height: 100%;
+     }
+     #gchi3 img{
+        width: 100%;
+        height: 100%;
+     }
+     #gchi2{
+        height: 45%;
+     width: 100%;
+     border:solid 1px rgb(45, 3, 3);
+display: flex;
+     }
+     #ggchi1{
+        height: 100%;
+        border:solid 1px rgb(45, 3, 3);
+        width: 50%;
+     }
+     #ggchi2 {
+        border:solid 1px rgb(45, 3, 3);
+        width: 50%;
+     }
+  #ggchi1>img{
+    width: 100%;
+        height: 100%;
+  }
+  #ggchi2>img{
+    width: 100%;
+     height: 100%;
+  }
+  #chil2>img{
+ width: 60px;
+  }
+  .star,.sta{
+    font-size: 1.5rem;
+    color: #ff9800;
+    background-color: unset;
+    border: none;
+  }
+  #stars:hover,.star:hover{
+    cursor: pointer;
+  }
+  #stars{
+    display: flex;
+    font-style:oblique;
+    color: rgb(109, 107, 107);
+  }
+  #quadiv{
+    display: flex;
+  }
+  #wishlist{
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU'); */
+border: 1px solid red;
+/* background-repeat: no-repeat; */
+/* margin: auto; */
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+  }
+  #wishlist>img{
+    width: 10%;
+    height:50% ;
+  }
+  #addcart{
+    border: solid 1px red;
+    display: flex;
+justify-content: center;
+align-items: center;
+/* width:80% ; */
+height: 55px;
+color: black;
+
+  }
+  #afterpay{
+    display: flex;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+  }
+  #afterpay>button{
+   background-color: aquamarine;
+   border-radius: 10px;
+   border: none;
+   height: 20px;
+   font-style:italic;
+   font-weight: 700;
+  }
+  #buynow{
+    background-color: black;
+    color: antiquewhite;
+    height: 55px;
+    width: 100%;
+    cursor: pointer;
+  }
+  #carwishbuy{
+    display: grid;
+    gap: 10px;
+    cursor: pointer;
+  }
+  #quadiv{
+    border:solid 1px red;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  #quadiv>button{
+    border: none;
+    width: 40%;
+  }
+  #quadiv>button:hover{
+    cursor: pointer;
+  }
+  #question{
+  display: flex;
+  }
+  #question>img{
+    width: 20px; 
+  }
+   
+    </style>
+</head>
+<body>
+    
+<div id="cont1">
+    <div id="chil1">
+            <div id="gchi1"></div>
+            <div id="gchi2">
+                <div id="ggchi1"></div>
+                <div id="ggchi2"></div>
+            </div>
+            <div id="gchi3"></div>
+        </div>
+    <div id="chil2">
+            <h1></h1>
+            <div id="stars">
+                <button class="sta">&#9734;</button>
+                <button class="sta">&#9734;</button>
+                <button class="sta">&#9734;</button>
+                <button class="sta">&#9734;</button>
+                <button class="sta">&#9734;</button>
+                <h3>Write a review</h3>
+            </div>
+            <div id="question">
+                <img src="https://image.shutterstock.com/image-vector/help-icon-logo-isolated-sign-260nw-1932771707.jpg" alt="">
+                <h3>Ask a question</h3>
+            </div>
+            <h3 id="price"></h3>
+            <div id="afterpay">
+                <button>afterpay></button>
+                <p>available for orders between $35 - $1,000</p>
+            </div>
+            <p>Shipping calculated at checkout</p>
+            <p>Pay in 4 interest-free installments for orders over $50 with</p>
+            <h3>Quantity</h3>
+            <div id="quadiv">
+                <button>-</button>
+                   <h3>1</h3>
+                <button>+</button>
+            </div>
+            <div id="carwishbuy">
+            <div id="addcart">Add to cart</div>
+            <div id="wishlist">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU" alt="">
+               <h4>Add to wishlist</h4>
+            </div>
+            <button id="buynow">Buy now</button>
+        </div>
+        </div>
+    </div>
+
+
+    <style>
+        #cont2{
+            width: 80%;
+            margin: auto;
+        }
+        #reviewsbtt{
+         display: flex;
+         justify-content: end;
+         gap: 8px;
+        }
+        #reviewsbtt>button{
+         height: 50px;
+         width: 12%;
+         border-color: #dc8504;
+        }
+
+        #reviewsbtt>button:nth-child(1){
+            color: #dc8504;
+        }
+        #reviewsbtt>button:nth-child(2){
+            color: #e7e1d8;
+            background-color: #dc8504;
+        }
+        #freeship{
+            margin-left: 20%;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #revques{
+            display:flex ;
+            gap: 10px;
+        }
+        #reviewsbtt>button:hover{
+         cursor: pointer;
+        }
+        #revques h3:hover{
+        cursor: pointer;
+        }
+        #inputrevie{
+            width: 100%;
+            height: 70px;
+        }
+        #butpost{
+            width: 50px;
+            height: 40px;
+            background-color: #b97207;
+            color: #e7e1d8;
+            border-radius: 7px;
+            display:block;
+      
+        }
+        #butpostdiv{
+            display: flex;
+            justify-content: end;
+        }
+    
+    </style>
+    
+    <div id="cont2">
+    <div id="freeship">
+        <h3>Free Shipping</h3>
+        <p>Free shipping for orders over $75! Only applicable for US</p>
+         </div>
+        <h4>CUSTOMER REVIEWS</h4>
+        <div id="reviewsbtt">
+<button  onclick="questions()">Ask question</button>
+<button  onclick="reviewses()">Add a review</button>
+
+ </div>
+    <div id="revques">
+        <div>
+        <h3 id="reviews" onclick="reviewses()">Reviews</h3>
+    </div>
+    <div>
+        <h3 id="questions" onclick="questions()">Questions</h3>
+      
+    </div>  
+    </div>
+    <div id="revicreat"></div>
+    <div id="questcreat"></div>
+  
+    </div>
+</body>
+</html>
+
+<script>
+    let appendf=()=>{
+let jewel=JSON.parse(localStorage.getItem("user"))
+}
+let img11="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
+let img22="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
+let img44="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
+let img33="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
+
+let getfunc=()=>{
+
+let img1=document.createElement("img")
+let img2=document.createElement("img")
+let img3=document.createElement("img")
+let img4=document.createElement("img")
+ img1.src=img11
+ img2.src=img22
+ img3.src=img33
+ img4.src=img44
+ document.getElementById("gchi1").append(img1)
+ document.getElementById("gchi3").append(img4)
+ document.getElementById("ggchi1").append(img2)
+ document.getElementById("ggchi2").append(img3)
+}
+getfunc()
+
+let chil2funct=()=>{
+    let ch1name=document.createElement("h1")
+}
+
+
+
+
+
+let reviewses=()=>{
+
+    let revidiv=document.getElementById("revicreat")
+let review=document.querySelector("#reviews")
+review.style.borderBottom="solid 3px #dc8504"
+
+let div=document.createElement("div")
+let h4=document.createElement("h4")
+h4.innerText="Rating"
+let but1=document.createElement("button")
+let but2=document.createElement("button")
+let but3=document.createElement("button")
+let but4=document.createElement("button")
+let but5=document.createElement("button")
+but1.innerHTML="&#9734;"
+but2.innerHTML="&#9734;"
+but3.innerHTML="&#9734;"
+but5.innerHTML="&#9734;"
+but4.innerHTML="&#9734;"
+but1.setAttribute("class","star")
+but2.setAttribute("class","star")
+but3.setAttribute("class","star")
+but4.setAttribute("class","star")
+but5.setAttribute("class","star")
+
+
+let h41=document.createElement("h4")
+h41.innerText="Your review"
+
+let input=document.createElement("input")
+input.setAttribute("id","inputrevie")
+input.placeholder="Why do you recommend..."
+
+let inputpho=document.createElement("input")
+inputpho.setAttribute("id","inputphoto")
+inputpho.type="file"
+
+let div1=document.createElement("div")
+
+let butpost=document.createElement("button")
+butpost.innerText="Post"
+butpost.setAttribute("id","butpost")
+div1.setAttribute("id","butpostdiv")
+div1.append(butpost)
+div.append(h4,but1,but2,but3,but4,but5,h41,input,inputpho,div1)
+revidiv.append(div)
+
+
+const allstar= document.querySelectorAll(".star")
+allstar.forEach((star,i)=>{
+    star.onclick=function(){
+        let current_star=i+1
+        allstar.forEach((star,j)=>{
+            if(current_star>=j+1)
+            {
+                star.innerHTML="&#9733";
+            }
+            else{
+                star.innerHTML="&#9734"; 
+            }
+        })
+    }
+})
+
+
+
+
+}
+
+
+let questions=()=>{
+let review=document.querySelector("#questions")
+review.style.borderBottom="solid 3px #dc8504"
+
+console.log("jhvljhv")
+}
+
+
+
+</script>
