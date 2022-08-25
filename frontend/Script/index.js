@@ -1,100 +1,91 @@
-let indexdata = async () => {
+
+  let indexdata = async () => {
     let res = await fetch("https://lovoda.herokuapp.com/api/productData")
     let data = await res.json()
-    console.log(data)
     item_append(data)
 }
 indexdata()
-let items = document.getElementById("items")
-let item_append = (data) => {
-    items.innerHTML = ""
+let items=document.querySelector("#items")
+  let item_append = (data) => {
     data.forEach((el) => {
-        let card = document.createElement("div")
-        card.setAttribute("class", "card_div");
-
-
-        let img_box = document.createElement("div");
-        img_box.setAttribute("class", "img_box");
-        let img = document.createElement("img");
+      let product_box = document.createElement("div");
+      product_box.setAttribute("class", "card");
+    //   add link
+    product_box.addEventListener("mouseover", (e) => {
+        img.src = el.hovimage;
+        title.style.borderBottom = "1px solid #121212";
+      });
+      product_box.addEventListener("mouseout", (e) => {
         img.src = el.image;
-        img.loading = "lazy";
-        img_box.append(img);
-
-
-        let love_btn = document.createElement("button");
-        love_btn.setAttribute("class", "heart-back");
-        love_btn.innerHTML = `<i class="fa fa-heart-o" aria-hidden="true"></i>`;
-
-        love_btn.addEventListener("click", (e) => {
-            love_btn.innerHTML = `<i class="fa fa-heart" aria-hidden="true"></i>`;
-        });
-
-        let title = document.createElement("a");
-        title.innerText = el.head;
-        title.setAttribute("class", "title");
-
-        card.addEventListener("mouseover", (e) => {
-            img.src = el.hovimage;
-            title.style.borderBottom = "1px solid #121212";
-        });
-        card.addEventListener("mouseout", (e) => {
-            img.src = el.image;
-            title.style.borderBottom = "1px solid transparent";
-        });
-
-        let price = document.createElement("p");
-        price.innerText = `$${el.price.toFixed(2)}`;
-        price.setAttribute("class", "price_tag");
-
-        card.append(img_box, love_btn, title, price)
-        items.append(card)
+        title.style.borderBottom = "1px solid transparent";
+      });
+      let img_div = document.createElement("div");
+      img_div.setAttribute("class", "img-box");
+  
+      let img = document.createElement("img");
+      img.src = el.image;
+      img.loading = "lazy";
+      img_div.append(img);
+  
+      let title = document.createElement("a");
+      title.innerText = el.head;
+      title.setAttribute("class", "prod-title");
+  
+      let price = document.createElement("p");
+      price.innerText = `$${el.price.toFixed(2)}`;
+      price.setAttribute("class", "prod-price");
+  
+      let like = document.createElement("button");
+      like.setAttribute("class", "heart-back");
+      like.innerHTML = `<i class="fa fa-heart-o" aria-hidden="true"></i>`;
+  
+      like.addEventListener("click", (e) => {
+        like.innerHTML = `<i class="fa fa-heart" aria-hidden="true"></i>`;
+      });
+      
+      product_box.append(like, img_div, title, price);
+      items.append(product_box);
     });
-}
-indexdata_social()
+  };
 
-
-let indexdata_social = async () => {
+  let indexdata_social = async () => {
     let res = await fetch("https://lovoda.herokuapp.com/api/Data")
     let data = await res.json()
     console.log(data)
     social_img_append(data)
 }
 
+
 indexdata_social()
-let social_img_append = (data) => {
-    let social_img = document.getElementById("social_img")
-    let social_list = document.createElement("div");
-    social_list.setAttribute("id", "social_list");
 
-    data.forEach((el) => {
-        let div = document.createElement("div");
-        div.addEventListener("click", () => {
-            window.location.href = "";
-        });
-        let shopnow = document.createElement("button")
-        shopnow.innerText = "SHOP IT"
-        shopnow.setAttribute("id", "shop_it")
-
-        let img = document.createElement("img");
-        img.src = el.img;
-        img.setAttribute("class", "grid-img");
-
-        div.append(img, shopnow);
-        social_list.append(div);
-    })
-    social_img.append(social_list)
-}
+  let social_img_append= (data) => {
+    let grid_img_list = document.getElementById("socialgit");
+  
+    let shop_feed_list = document.createElement("div");
+    shop_feed_list.setAttribute("id", "shop-feed-list");
+  
+    data.forEach((item) => {
+      let div = document.createElement("div");
+    //  add link
+  
+      let img = document.createElement("img");
+      img.src = item.img;
+      img.setAttribute("class", "grid-img");
+  
+      div.append(img);
+      shop_feed_list.append(div);
+    });
+    grid_img_list.append(shop_feed_list);
+  };
 
 
-let indexdata_load = async () => {
+  let indexdata_load = async () => {
     let res = await fetch("https://lovoda.herokuapp.com/api/load_more")
     let data = await res.json()
     console.log(data)
     social_img_append(data)
 }
-let load_more = document.getElementById("load_more")
+let load_more = document.getElementById("more")
 load_more.onclick = () => {
     indexdata_load()
 }
-
-
