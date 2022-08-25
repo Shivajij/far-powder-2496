@@ -8,22 +8,27 @@
 
     <style>
      #cont1{
-        /* height: ; */
-        border:solid 1px red;
         width: 80%;
         margin: auto;
         display: flex;
-
+         height: 900px;
+      
      }
      #chil1{
       height: 100%;
-        border:solid 1px red;
         width: 60%;
-     }
+        overflow-y:scroll;
+        /* overflow-y:auto; */
+        scrollbar-width: thin;
    
+}
+::-webkit-scrollbar {
+    width: 2em;
+    height: 2em
+     }
+
      #chil2{
       height: 100%;
-        border:solid 1px rgb(40, 19, 235);
         width: 40%;
         display: grid;
         justify-content: center;
@@ -33,12 +38,9 @@
      #gchi1{
      height: 55%;
      width: 100%;
-     border:solid 1px rgb(151, 222, 20);
-
      }
      #gchi1 img{
         width: 100%;
-        /* width: 100%; */
         height: 100%;
      }
      #gchi3 img{
@@ -48,16 +50,13 @@
      #gchi2{
         height: 45%;
      width: 100%;
-     border:solid 1px rgb(45, 3, 3);
 display: flex;
      }
      #ggchi1{
         height: 100%;
-        border:solid 1px rgb(45, 3, 3);
         width: 50%;
      }
      #ggchi2 {
-        border:solid 1px rgb(45, 3, 3);
         width: 50%;
      }
   #ggchi1>img{
@@ -77,7 +76,7 @@ display: flex;
     background-color: unset;
     border: none;
   }
-  #stars:hover,.star:hover{
+  #stars:hover,.sta:hover,.star:hover{
     cursor: pointer;
   }
   #stars{
@@ -89,10 +88,7 @@ display: flex;
     display: flex;
   }
   #wishlist{
-    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU'); */
-border: 1px solid red;
-/* background-repeat: no-repeat; */
-/* margin: auto; */
+border: 1px solid rgb(57, 2, 2);
 color: black;
 display: flex;
 justify-content: center;
@@ -103,7 +99,7 @@ align-items: center;
     height:50% ;
   }
   #addcart{
-    border: solid 1px red;
+    border: solid 1px rgb(42, 1, 1);
     display: flex;
 justify-content: center;
 align-items: center;
@@ -114,7 +110,7 @@ color: black;
   }
   #afterpay{
     display: flex;
-    border: 1px solid red;
+    /* border: 1px solid gray; */
     justify-content: center;
     align-items: center;
     color: grey;
@@ -140,14 +136,15 @@ color: black;
     cursor: pointer;
   }
   #quadiv{
-    border:solid 1px red;
+    border:solid 1px gray;
     width: 50%;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
   }
   #quadiv>button{
     border: none;
-    width: 40%;
+    width: 35%;
   }
   #quadiv>button:hover{
     cursor: pointer;
@@ -174,7 +171,7 @@ color: black;
         </div>
     <div id="chil2">
             <h1></h1>
-            <div id="stars">
+            <div id="stars" onclick="scrollfunction()">
                 <button class="sta">&#9734;</button>
                 <button class="sta">&#9734;</button>
                 <button class="sta">&#9734;</button>
@@ -182,7 +179,7 @@ color: black;
                 <button class="sta">&#9734;</button>
                 <h3>Write a review</h3>
             </div>
-            <div id="question">
+            <div id="question" onclick="scrollfunction()">
                 <img src="https://image.shutterstock.com/image-vector/help-icon-logo-isolated-sign-260nw-1932771707.jpg" alt="">
                 <h3>Ask a question</h3>
             </div>
@@ -195,17 +192,23 @@ color: black;
             <p>Pay in 4 interest-free installments for orders over $50 with</p>
             <h3>Quantity</h3>
             <div id="quadiv">
-                <button>-</button>
-                   <h3>1</h3>
-                <button>+</button>
+                <button onclick="decreas()">-</button>
+                   <h3 id="quantitynum">1</h3>
+                <button onclick="increace()">+</button>
             </div>
             <div id="carwishbuy">
-            <div id="addcart">Add to cart</div>
+            <div id="addcart" onclick="addtocart()">Add to cart</div>
             <div id="wishlist">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU" alt="">
                <h4>Add to wishlist</h4>
             </div>
             <button id="buynow">Buy now</button>
+            <p>Keep in simple with single stone stud earrings!</p>
+            <li>Screw/Twist backing</li>
+            <li>Stainless Steel</li>
+            <li>14k Gold Plating</li>
+            <p>Measurement:</p>
+            <li>0.19in / 0.48cm</li>
         </div>
         </div>
     </div>
@@ -237,6 +240,7 @@ color: black;
         #freeship{
             margin-left: 20%;
             font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: gray;
         }
         #revques{
             display:flex ;
@@ -259,15 +263,40 @@ color: black;
             color: #e7e1d8;
             border-radius: 7px;
             display:block;
-      
+            cursor: pointer;
         }
         #butpostdiv{
             display: flex;
             justify-content: end;
+          
         }
-    
+        #divposted{
+          background-color: #dff0d8;
+          height: 30px;
+          text-align: center;
+        }
+        #divposted>h3{
+          font-family:Arial, Helvetica, sans-serif;
+       color: gray;
+          font-weight: 100;
+        }
+        #bttchil1{
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          gap: 10px;
+        }
+        #bttchil1 img{
+         width: 100%;
+        }
+    #lastcontai{
+      width: 80%;
+      margin: auto;
+    }
+    #lastcontai>h2{
+      font-family:sans-serif ;
+color: gray;
+    }
     </style>
-    
     <div id="cont2">
     <div id="freeship">
         <h3>Free Shipping</h3>
@@ -277,7 +306,6 @@ color: black;
         <div id="reviewsbtt">
 <button  onclick="questions()">Ask question</button>
 <button  onclick="reviewses()">Add a review</button>
-
  </div>
     <div id="revques">
         <div>
@@ -285,17 +313,57 @@ color: black;
     </div>
     <div>
         <h3 id="questions" onclick="questions()">Questions</h3>
-      
     </div>  
     </div>
     <div id="revicreat"></div>
     <div id="questcreat"></div>
-  
+   
+    </div>
+    <div id="lastcontai">
+      <h2>You may also like</h2>
+      <div id="bttchil1">
+        <div id=" bttggch1">
+          <img src="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101106-G-1_1.jpg?v=1659449836" alt="" srcset="">
+          <p>Ball Stud Earring | gold</p>
+          <h5>$12.00</h5>
+        </div >
+        <div id="bttggch2">
+          <img src="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101107-G-2_1_493x.jpg?v=1659449908" alt="" srcset="">
+          <p>Barrel Stone Earrings</p>
+          <h5>$18.00</h5>
+        </div >
+        <div id="bttggch3">
+          <img src="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101104-1_1_493x.jpg?v=1659450395" alt="" srcset="">
+          <p>Fern Ear Cuff Earrings</p>
+          <h5>$10.00</h5>
+        </div >
+        <div id="bttggch4">
+          <img src="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101105-1_1_493x.jpg?v=1659449763" alt="" srcset="">
+          <p>Evermore Ear Earrings</p>
+          <h5>$15.00</h5>
+        </div>
+      </div>
     </div>
 </body>
 </html>
 
 <script>
+let addtocart=()=>{
+  let jewel=JSON.parse(localStorage.getItem("productDetails"))
+
+ let qualvalue= document.getElementById("quantitynum").innerText
+// window.location.href="cart.html"
+console.log(qualvalue)
+a
+}
+
+
+  let scrollfunction=()=>{
+    console.log("hgckhg")
+// window.scrollTo(0, 1000);
+window.scrollBy(0, window.innerHeight)
+  }
+
     let appendf=()=>{
 let jewel=JSON.parse(localStorage.getItem("user"))
 }
@@ -321,8 +389,21 @@ let img4=document.createElement("img")
 }
 getfunc()
 
-let chil2funct=()=>{
-    let ch1name=document.createElement("h1")
+
+// let chil2funct=()=>{
+//     let ch1name=document.createElement("h1")
+// }
+
+
+let count=1
+let increace=()=>{
+count++
+document.getElementById("quantitynum").innerText=count
+}
+let decreas=()=>{
+  if(count>1)
+count--
+document.getElementById("quantitynum").innerText=count
 }
 
 
@@ -330,12 +411,18 @@ let chil2funct=()=>{
 
 
 let reviewses=()=>{
+  document.getElementById("questcreat").innerHTML=null
+  let qustop=document.querySelector("#questions")
+qustop.style.borderBottom=null
+  let revdii=document.getElementById("revicreat")
+revdii.innerHTML=""
 
     let revidiv=document.getElementById("revicreat")
 let review=document.querySelector("#reviews")
 review.style.borderBottom="solid 3px #dc8504"
 
 let div=document.createElement("div")
+div.setAttribute("id","divcontai")
 let h4=document.createElement("h4")
 h4.innerText="Rating"
 let but1=document.createElement("button")
@@ -367,12 +454,15 @@ inputpho.setAttribute("id","inputphoto")
 inputpho.type="file"
 
 let div1=document.createElement("div")
-
+div1.addEventListener("click",()=>{
+  reviewposted()
+})
 let butpost=document.createElement("button")
 butpost.innerText="Post"
 butpost.setAttribute("id","butpost")
 div1.setAttribute("id","butpostdiv")
 div1.append(butpost)
+
 div.append(h4,but1,but2,but3,but4,but5,h41,input,inputpho,div1)
 revidiv.append(div)
 
@@ -394,18 +484,60 @@ allstar.forEach((star,i)=>{
 })
 
 
+let reviewposted=()=>{
+document.querySelector("#divcontai").innerHTML=""
+let div=document.createElement("div")
+div.setAttribute("id","divposted")
+let h5=document.createElement("h3")
+h5.innerText="Thank you for posting a review! It will be published very soon."
+div.append(h5)
+revdii.append(div)
+}
 
 
 }
 
-
 let questions=()=>{
+  let revidiv=document.getElementById("questcreat")
+  revidiv.innerHTML=""
 let review=document.querySelector("#questions")
 review.style.borderBottom="solid 3px #dc8504"
 
+document.getElementById("revicreat").innerHTML=null
+  let qustop=document.querySelector("#reviews")
+qustop.style.borderBottom=null
+
+
+let div=document.createElement("div")
+div.setAttribute("id","divcontai")
+let input=document.createElement("input")
+input.setAttribute("id","inputrevie")
+input.placeholder="Your question..."
+
+let div1=document.createElement("div")
+div1.addEventListener("click",()=>{
+  reviewposted()
+})
+let butpost=document.createElement("button")
+butpost.innerText="Post"
+butpost.setAttribute("id","butpost")
+div1.setAttribute("id","butpostdiv")
+div1.append(butpost)
+
+div.append(input,div1)
+revidiv.append(div)
 console.log("jhvljhv")
+
+
+let reviewposted=()=>{
+document.querySelector("#divcontai").innerHTML=""
+let div=document.createElement("div")
+div.setAttribute("id","divposted")
+let h5=document.createElement("h3")
+h5.innerText="Thank you for posting a question! Your question will appear on the site once we've answered it."
+div.append(h5)
+revidiv.append(div)
 }
-
-
+}
 
 </script>
