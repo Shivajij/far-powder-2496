@@ -179,4 +179,4 @@ let checkoutFunction = (event) => {
     }
   }
 };
-form.addEventListener("submit", checkoutFunction);
+
