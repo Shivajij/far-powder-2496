@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>products</title>
 
     <style>
      #cont1{
@@ -95,7 +95,7 @@ justify-content: center;
 align-items: center;
   }
   #wishlist>img{
-    width: 10%;
+    width: 6%;
     height:50% ;
   }
   #addcart{
@@ -155,12 +155,50 @@ color: black;
   #question>img{
     width: 20px; 
   }
+
+
+  #wishdiv{
+    padding: 10px;
+    border: solid 1px gray;
+    position:fixed;
+    right: 0px;
+    top: 50%;
+
+    transform: rotate(270deg);
+    /* padding: 0%;
+    margin: 0%; */
+    border-radius:20px 20px 0px 0px;
+    width: 90px;
+    height: 20px;
+    /* background-image: url('https://i.natgeofe.com/k/7bfcf2d2-542e-44f0-962a-c36f2efa98a5/heart_4x3.jpg');  */
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+  }
+  #wishdiv>img{
+    width: 26px;
+    transform: rotate(90deg);
+  }
+  #wishdiv:hover{
+    cursor: pointer;
+  }
    
     </style>
 </head>
 <body>
-    
+  <div id="wishdiv" onclick="wislistfunction()">
+    <!-- <button id="wishbtt">WISHLIST</button> -->
+    <img src="https://static.vecteezy.com/system/resources/previews/001/187/385/non_2x/heart-png.png" alt="">
+    <h5>WISHLIST</h5> 
+  </div> 
+  <div id="wishbody">
+
+  </div>
+
 <div id="cont1">
+  
     <div id="chil1">
             <div id="gchi1"></div>
             <div id="gchi2">
@@ -170,7 +208,8 @@ color: black;
             <div id="gchi3"></div>
         </div>
     <div id="chil2">
-            <h1></h1>
+    
+            <h1 id="name" style="color: rgb(36, 35, 35);"></h1>
             <div id="stars" onclick="scrollfunction()">
                 <button class="sta">&#9734;</button>
                 <button class="sta">&#9734;</button>
@@ -198,8 +237,8 @@ color: black;
             </div>
             <div id="carwishbuy">
             <div id="addcart" onclick="addtocart()">Add to cart</div>
-            <div id="wishlist">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU" alt="">
+            <div id="wishlist"  onclick="addtowishlist()">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU" alt="" id="heartimg">
                <h4>Add to wishlist</h4>
             </div>
             <button id="buynow">Buy now</button>
@@ -212,7 +251,7 @@ color: black;
         </div>
         </div>
     </div>
-
+ 
 
     <style>
         #cont2{
@@ -296,6 +335,53 @@ color: black;
       font-family:sans-serif ;
 color: gray;
     }
+
+    #wishlistdiv{
+      width:20% ;
+      height: 100%;
+      background-color:white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      position: fixed;
+      right: 0%;
+      top: auto;
+      padding-left: 15px;
+      text-align: center;
+      justify-content: center;
+    }
+    #wishlistdiv>img{
+      width: 50px;
+
+    }
+    #wishlistdiv>button{
+     margin: auto;
+     height: 40px;
+     background-color: #b97207;
+    }
+    #childdiv2{
+      display:flex;
+      gap: 10px;
+      margin: auto;
+    }
+    #childdiv2>img{
+    width: 80px;
+    }
+  /* #divwiah{
+    margin: auto;
+  } */
+  #c11hil{
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+  }
+  #c11hil>img{
+    width: 50px;
+  }
+  #canceldiv{
+    text-align: end;
+    color: gray;
+    cursor: pointer;
+  }
     </style>
     <div id="cont2">
     <div id="freeship">
@@ -348,13 +434,183 @@ color: gray;
 </html>
 
 <script>
-let addtocart=()=>{
-  let jewel=JSON.parse(localStorage.getItem("productDetails"))
 
- let qualvalue= document.getElementById("quantitynum").innerText
-// window.location.href="cart.html"
-console.log(qualvalue)
-a
+   let wislistfunction=()=>{
+    let body=document.querySelector("#wishbody")
+    let divapp=document.createElement("div")
+  divapp.setAttribute("id","wishlistdiv")
+
+  let butcan=document.createElement("h2")
+  butcan.innerText="X"
+butcan.setAttribute("id","canceldiv")
+butcan.addEventListener("click",function(){
+  cancelfunction()
+})
+divapp.append(butcan)
+
+
+
+let  cancelfunction=()=>{
+  let cancell=document.getElementById("wishbody")
+  cancell.innerHTML=""
+}
+
+  let im1=document.createElement("img")
+  im1.src="https://static.vecteezy.com/system/resources/previews/001/187/385/non_2x/heart-png.png"
+let im2=document.createElement("h2")
+im2.innerText="wishlist"
+let im3=document.createElement("h2")
+im3.innerText="Share"
+
+let chil11=document.createElement("div")
+  chil11.setAttribute("id","c11hil")
+let chil22=document.createElement("img")
+  chil22.src="https://1000logos.net/wp-content/uploads/2021/04/Facebook-logo.png"
+let chil33=document.createElement("img")
+   chil33.src="https://static.vecteezy.com/system/resources/previews/002/534/045/original/social-media-twitter-logo-blue-isolated-free-vector.jpg"
+   let chil44=document.createElement("img")
+  chil44.src="https://img.freepik.com/free-vector/instagram-icon_1057-2227.jpg?w=2000"
+let chil55=document.createElement("img")
+   chil55.src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+   let chilh5=document.createElement("h5")
+   chilh5.innerText="Go to wishlist page"
+   let chilbtt=document.createElement("button")
+     chilbtt.innerText="+ ADD A NEW LIST"
+chil11.append(chil22,chil33,chil44,chil55)
+   divapp.append(im1,im2,im3,chil11,chilh5,chilbtt)
+  let productswish=JSON.parse(localStorage.getItem("productofwishlist"))||[]
+
+  productswish.forEach((el)=>{
+
+let divwiah=document.createElement("div")
+divwiah.setAttribute("id","childdiv2")
+let childwi=document.createElement("div")
+childwi.setAttribute("id","divwiahdata")
+
+let but1=document.createElement("img")
+let but2=document.createElement("h5")
+let but3=document.createElement("h4")
+let but4=document.createElement("button")
+
+but1.src=el.image
+but2.innerText=el.name
+but3.innerText=el.price
+// console.log(but1,but2,but3,but4)
+but4.innerText="ADD TO CART"
+childwi.append(but2,but3)
+divwiah.append(but1,childwi)
+// divapp.append(but1,but2,but3,but4)
+divapp.append(divwiah,but4)
+body.append(divapp)
+// console.log("done")
+  })
+  // divwiah.append(but1,but2,but3,but4)
+ 
+   }
+
+
+ 
+
+flag=false
+let addtowishlist=()=>{
+  let first="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU"
+ let secont="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0nfOhIIR6hG-N_5ut-xxfw733eij8yXBjQ&usqp=CAU"
+  let wishdiv=document.getElementById("wishlist")
+  let heartimg=document.getElementById("heartimg")
+  let productsdata=JSON.parse(localStorage.getItem("productDetails"))
+  if(flag==true)
+  {
+    heartimg.src=first
+    let proddel=JSON.parse(localStorage.getItem("productofwishlist"))
+
+    proddel.forEach((el,i)=>{
+      proddel.splice(i,1)
+      localStorage.setItem("productofwishlist",JSON.stringify(proddel))
+  
+    })
+      flag=false
+  }
+  else
+  {
+    heartimg.src=secont
+    
+  
+  let productarr=JSON.parse(localStorage.getItem("productofwishlist"))||[]
+productsdata.forEach((el)=>{
+  cartdata={
+
+  image:el.image,
+  name:el.head,
+  price:el.price,
+  quantity:document.getElementById("quantitynum").innerText
+  }
+  productarr.push(cartdata)
+  })
+localStorage.setItem("productofwishlist",JSON.stringify(productarr))
+    flag=true
+  }
+}
+
+
+
+
+let dumarr=[]
+  let dumdata={
+    image:"https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313",
+ hovimage:"https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313",
+quantity:document.getElementById("quantitynum").innerText,
+head:"dataName",
+price:"$10"
+  }
+  dumarr.push(dumdata)
+  localStorage.setItem("productDetails",JSON.stringify(dumarr))
+
+let img44="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
+let img33="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
+let datasfunction=()=>{
+let datas=JSON.parse(localStorage.getItem("productDetails"))
+
+let img3=document.createElement("img")
+let img4=document.createElement("img")
+img3.src=img33
+ img4.src=img44
+document.getElementById("ggchi2").append(img3)
+ document.getElementById("gchi3").append(img4)
+datas.forEach((el)=>{
+let prices=document.getElementById("price")
+prices.innerText=el.price
+let names=document.getElementById("name")
+names.innerText=el.head
+
+
+let img1=document.createElement("img")
+img1.src=el.image
+let img2=document.createElement("img")
+ img2.src=el.hovimage
+ document.getElementById("gchi1").append(img1)
+ document.getElementById("ggchi1").append(img2)
+
+ })
+
+}
+datasfunction()
+let addtocart=()=>{
+  let productsdata=JSON.parse(localStorage.getItem("productDetails"))
+  let productarr=[]
+productsdata.forEach((el)=>{
+  cartdata={
+
+  image:el.image,
+  name:el.head,
+  price:el.price,
+  quantity:document.getElementById("quantitynum").innerText
+  }
+  productarr.push(cartdata)
+  })
+
+localStorage.setItem("productofcart",JSON.stringify(productarr))
+alert("Item added to your cart")
+window.location.href="cart.html"
 }
 
 
@@ -363,36 +619,6 @@ a
 // window.scrollTo(0, 1000);
 window.scrollBy(0, window.innerHeight)
   }
-
-    let appendf=()=>{
-let jewel=JSON.parse(localStorage.getItem("user"))
-}
-let img11="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
-let img22="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
-let img44="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
-let img33="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
-
-let getfunc=()=>{
-
-let img1=document.createElement("img")
-let img2=document.createElement("img")
-let img3=document.createElement("img")
-let img4=document.createElement("img")
- img1.src=img11
- img2.src=img22
- img3.src=img33
- img4.src=img44
- document.getElementById("gchi1").append(img1)
- document.getElementById("gchi3").append(img4)
- document.getElementById("ggchi1").append(img2)
- document.getElementById("ggchi2").append(img3)
-}
-getfunc()
-
-
-// let chil2funct=()=>{
-//     let ch1name=document.createElement("h1")
-// }
 
 
 let count=1
@@ -405,8 +631,6 @@ let decreas=()=>{
 count--
 document.getElementById("quantitynum").innerText=count
 }
-
-
 
 
 
@@ -539,5 +763,7 @@ div.append(h5)
 revidiv.append(div)
 }
 }
+
+
 
 </script>
