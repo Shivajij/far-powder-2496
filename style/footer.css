@@ -390,7 +390,7 @@ ul {
  }
 
  #footerstart{
-
+   margin-top: 80px;
     height: 600px;
     width: 100%;
     /* border: 1px solid black; */

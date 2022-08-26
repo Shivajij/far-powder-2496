@@ -59,4 +59,38 @@ function footer(){
     <p id="shopify">© 2022, Lovoda Powered by Shopify</p>`
 }
 
-export default footer
+
+
+function navbar(){
+  return ` <div id="top-sec">
+  <p>Free Shipping on Orders Over $75 and Free Returns (US ONLY)</p>
+</div>
+
+<div id="search-div">
+
+  <input type="text " id="search-box" placeholder="Search">
+  <i id="slideicon" class="material-icons">close</i>
+</div>
+
+<div id="navbar">
+  <div id="new">
+     <img id="lavoda"  src="data:image/png;base64,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" alt="">
+    <p><a id="hom" href="">Home</a></p>
+     <p>New</p>
+     <p>Shop All</p>
+     <p>Earrings</p>
+     <p>Necklace</p>
+     <p>Bracelets</p>
+     <p>Rings</p>
+     <p>Shop Social</p>
+  </div>
+  
+  <div id="icon">
+      <i id="srch"  class="material-icons">search</i>
+       <a href="./login.html"><span class="material-icons">person</span></a>
+       <a href=""><span class="material-icons">local_mall</span></a>
+  </div>
+</div>`
+}
+
+export {footer,navbar}
