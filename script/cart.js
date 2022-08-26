@@ -8,7 +8,5 @@ let show=document.getElementById("qta-show");
 
 let ini_value=1;// local statorage 
 
-function Subtract(){
-    
-}
+
 
