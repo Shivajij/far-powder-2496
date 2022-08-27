@@ -65,14 +65,14 @@ document.getElementById("footerstart").innerHTML=footer()
     // let name=document.getElementById('name').value;
     let email=document.getElementById('email').value;
     let password=document.getElementById('pwd').value;
-    let user = new signupclass(email, password);
+    let user = new signupclass(email,password);
      console.log(user);
      if (user.signup()) {
        if (Fil(email)) {
          alert("Signup sucessfull");
          signupdataLS.push(user);
          localStorage.setItem("signupdata", JSON.stringify(signupdataLS));
-         window.location.href="login.html"
+        //  window.location.href="login.html"
        } else {
          alert("user already exisit");
        }
