@@ -72,7 +72,7 @@ document.getElementById("footerstart").innerHTML=footer()
          alert("Signup sucessfull");
          signupdataLS.push(user);
          localStorage.setItem("signupdata", JSON.stringify(signupdataLS));
-        //  window.location.href="login.html"
+         window.location.href="login.html"
        } else {
          alert("user already exisit");
        }
