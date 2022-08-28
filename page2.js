@@ -1,5 +1,33 @@
 
 
+// console.log("done")
+import {footer,navbar} from "../component/navbar.js";
+
+document.getElementById("top-navbar").innerHTML=navbar()
+
+
+document.getElementById('srch').addEventListener('click',searchSlide);
+function searchSlide(){
+  
+  document.getElementById('search-div').classList.toggle('active')
+}
+
+document.getElementById('slideicon').addEventListener('click',Slide);
+function Slide(){
+   
+  document.getElementById('search-div').classList.toggle('active')
+}
+
+document.getElementById("footerstart").innerHTML=footer()
+
+
+
+ let wish111=document.getElementById("wishdiv")
+ wish111.onclick=()=>{
+  wislistfunction()
+ }
+
+
 let wislistfunction=()=>{
  let body=document.querySelector("#wishbody")
  let divapp=document.createElement("div")
@@ -67,16 +95,18 @@ divwiah.append(but1,childwi)
 // divapp.append(but1,but2,but3,but4)
 divapp.append(divwiah,but4)
 body.append(divapp)
-// console.log("done")
+
 })
-// divwiah.append(but1,but2,but3,but4)
 
 }
 
+// wislistfunction()
+let wish112=document.getElementById("wishlist")
+wish112.onclick=()=>{
+  addtowishlist()
+}
 
-
-
-flag=false
+let flag=false
 let addtowishlist=()=>{
 let first="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8xEN3FK9e5vn6Uq5H5e9dS9BGgAAMoRgpynHfvEsRKr7wCiRMfQYPzABkhkXniljAo4&usqp=CAU"
 let secont="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0nfOhIIR6hG-N_5ut-xxfw733eij8yXBjQ&usqp=CAU"
@@ -102,11 +132,10 @@ else
 
 let productarr=JSON.parse(localStorage.getItem("productofwishlist"))||[]
 productsdata.forEach((el)=>{
-cartdata={
-
+let cartdata={
 image:el.image,
 name:el.head,
-price:el.price,
+price:`$ ${el.price}`,
 quantity:document.getElementById("quantitynum").innerText
 }
 productarr.push(cartdata)
@@ -115,7 +144,6 @@ localStorage.setItem("productofwishlist",JSON.stringify(productarr))
  flag=true
 }
 }
-
 
 // let dumarr=[]
 // let dumdata={
@@ -130,9 +158,16 @@ localStorage.setItem("productofwishlist",JSON.stringify(productarr))
 
 let img44="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-3_1_1100x.jpg?v=1659450313"
 let img33="https://cdn.shopify.com/s/files/1/0627/7388/7215/products/L101103-2_1.jpg?v=1659450313"
-let datasfunction=()=>{
-let datas=JSON.parse(localStorage.getItem("productDetails"))
+let dataarr=[]
+let  qqqq=()=>{
 
+
+let datas=JSON.parse(localStorage.getItem("productDetails"))||[]
+dataarr.push(datas)
+console.log(dataarr);
+datasfunction(dataarr)
+}
+let datasfunction=(datas)=>{
 let img3=document.createElement("img")
 let img4=document.createElement("img")
 img3.src=img33
@@ -141,11 +176,9 @@ document.getElementById("ggchi2").append(img3)
 document.getElementById("gchi3").append(img4)
 datas.forEach((el)=>{
 let prices=document.getElementById("price")
-prices.innerText=el.price
+prices.innerText=`$ ${el.price}`
 let names=document.getElementById("name")
 names.innerText=el.head
-
-
 let img1=document.createElement("img")
 img1.src=el.image
 let img2=document.createElement("img")
@@ -156,12 +189,21 @@ document.getElementById("ggchi1").append(img2)
 })
 
 }
-datasfunction()
+qqqq()
+
+
+ let wish113=document.getElementById("addcart")
+
+
+
+ wish113.onclick=()=>{
+  addtocart()
+ }
 let addtocart=()=>{
-let productsdata=JSON.parse(localStorage.getItem("productDetails"))
+let productsdata=dataarr
 let productarr=[]
 productsdata.forEach((el)=>{
-cartdata={
+let cartdata={
 
 image:el.image,
 name:el.head,
@@ -176,31 +218,56 @@ alert("Item added to your cart")
 window.location.href="cart.html"
 }
 
-
+ let wish114=document.querySelector(".scrollfunc")
+ wish114.onclick=()=>{
+  scrollfunction()
+ }
+ let wish001=document.querySelector(".scrollfun")
+ wish001.onclick=()=>{
+  scrollfunction()
+ }
 let scrollfunction=()=>{
- console.log("hgckhg")
-// window.scrollTo(0, 1000);
-window.scrollBy(0, window.innerHeight)
+window.scrollTo(0, 1000);
+// window.scrollBy(0, window.innerHeight)
 }
-
+ let wish115=document.getElementById("wishdiv")
+ wish115.onclick=()=>{
+  wislistfunction()
+ }
 
 let count=1
+let wish116=document.getElementById("increace")
+wish116.onclick=()=>{
+  increace()
+}
 let increace=()=>{
 count++
 document.getElementById("quantitynum").innerText=count
 }
+
+ let wish117=document.getElementById("decreas")
+ wish117.onclick=()=>{
+  decreas()
+ }
 let decreas=()=>{
 if(count>1)
 count--
 document.getElementById("quantitynum").innerText=count
 }
 
-
+ let wish118=document.querySelector(".reviewses")
+ wish118.onclick=()=>{
+  reviewses()
+ }
+ let wish18=document.querySelector("#reviewses")
+ wish18.onclick=()=>{
+  reviewses()
+ }
 
 let reviewses=()=>{
 document.getElementById("questcreat").innerHTML=null
 let qustop=document.querySelector("#questions")
-qustop.style.borderBottom=null
+qustop.style.borderBottom=""
 let revdii=document.getElementById("revicreat")
 revdii.innerHTML=""
 
@@ -284,6 +351,14 @@ revdii.append(div)
 
 }
 
+ let wish119=document.getElementById("questionse")
+ wish119.onclick=()=>{
+  questions()
+ }
+ let wish19=document.querySelector(".questionss")
+ wish19.onclick=()=>{
+  questions()
+ }
 let questions=()=>{
 let revidiv=document.getElementById("questcreat")
 revidiv.innerHTML=""
@@ -313,7 +388,6 @@ div1.append(butpost)
 
 div.append(input,div1)
 revidiv.append(div)
-console.log("jhvljhv")
 
 
 let reviewposted=()=>{
