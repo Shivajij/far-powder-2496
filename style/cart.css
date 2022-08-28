@@ -357,3 +357,27 @@ body {
     object-fit: cover;
   }
 }
+#cartpagediv {
+  /* border: 1px solid; */
+  display: flex;
+  justify-content:space-between
+}
+/* #table-heading{
+  border: 1px solid
+} */
+
+#cartbox{
+  display: flex;
+}
+
+/* #cartimgdiv>img{
+  width: 20%;
+} */
+#cartimgid{
+  width: 50%;
+  /* border: 1px solid; */
+}
+#cartimgdiv{
+  /* border: 1px solid; */
+  width: 20%;
+}

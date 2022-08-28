@@ -2,77 +2,97 @@ let subTotal = 0;
 let subTotalWithoutDiscount = 0;
 
 // product display function
-let displayProductList = (cart_items, loginUser) => {
-  if (!cart_items) return;
-  let productList = document.getElementById("product-list");
-  productList.innerHTML = "";
+// let displayProductList = (cart_items, loginUser) => {
+//   if (!cart_items) return;
+//   let productList = document.getElementById("product-list");
+//   productList.innerHTML = "";
 
-  let elements = cart_items.filter((ele) => {
-    if (loginUser.email == ele.email) return ele;
-  });
+//   let elements = cart_items.filter((ele) => {
+//     if (loginUser.email == ele.email) return ele;
+//   });
 
-  let data = [];
-  for (let i = 0; i < elements.length; i++) {
-    let valuee = elements[i].cartItems;
-    for (let j = 0; j < valuee.length; j++) {
-      data.push(valuee[j]);
-    }
-  }
+//   let data = [];
+//   for (let i = 0; i < elements.length; i++) {
+//     let valuee = elements[i].cartItems;
+//     for (let j = 0; j < valuee.length; j++) {
+//       data.push(valuee[j]);
+//     }
+//   }
 
-  data.forEach((element) => {
-    let row = document.createElement("div");
-    row.setAttribute("id", "row");
+//   data.forEach((element) => {
+//     let row = document.createElement("div");
+//     row.setAttribute("id", "row");
 
-    let img_box = document.createElement("div");
-    img_box.setAttribute("id", "img-box");
+//     let img_box = document.createElement("div");
+//     img_box.setAttribute("id", "img-box");
 
-    let p1 = document.createElement("p");
-    p1.innerText = element.count;
+//     let p1 = document.createElement("p");
+//     p1.innerText = element.count;
 
-    let img = document.createElement("img");
-    img.src = element.image;
+//     let img = document.createElement("img");
+//     img.src = element.image;
 
-    img_box.append(p1, img);
+//     img_box.append(p1, img);
 
-    let title = document.createElement("h3");
-    title.innerText = element.head;
-    title.setAttribute("id", "che_title");
+//     let title = document.createElement("h3");
+//     title.innerText = element.head;
+//     title.setAttribute("id", "che_title");
 
-    let price = document.createElement("h3");
-    let totalPrice = element.count * element.price;
-    subTotal += totalPrice;
-    subTotalWithoutDiscount += totalPrice;
+//     let price = document.createElement("h3");
+//     let totalPrice = element.count * element.price;
+//     subTotal += totalPrice;
+//     subTotalWithoutDiscount += totalPrice;
 
-    totalPrice = totalPrice.toFixed(2);
-    price.innerText = `$${totalPrice}`;
-    price.setAttribute("id", "che_price");
+//     totalPrice = totalPrice.toFixed(2);
+//     price.innerText = `$${totalPrice}`;
+//     price.setAttribute("id", "che_price");
 
-    row.append(img_box, title, price);
-    productList.append(row);
-  });
-};
+//     row.append(img_box, title, price);
+//     productList.append(row);
 
-let cart_items = JSON.parse(localStorage.getItem("#")) || [];
+//   });
+
+// };
+
+let cart_items = JSON.parse(localStorage.getItem("finals")) || [];
 let loginUser = JSON.parse(localStorage.getItem("loginUser")) || null;
-displayProductList(cart_items, loginUser);
+// displayProductList(cart_items, loginUser);
 
 
-let displaySubTotal = () => {
+
+let displaySubTotal = (data) => {
   let sub_top = document.getElementById("sub-total-top");
   let sub_bottom = document.getElementById("sub-total-bottom");
   let sbTotal = localStorage.getItem("discountSubTotal");
+  let productlist=document.getElementById("product-list")
+data.forEach((el)=>{
+  let h3=document.createElement("h3")
+  let total = (el.price * el.quantity).toFixed(2);
 
-  let cuponApply = localStorage.getItem("cuponApply") || null;
-  sub_top.innerText = `$${Number(subTotalWithoutDiscount).toFixed(2)}`;
+  h3.innerText=total
+  sub_top.append(h3)
+  let sub_bottoms=document.createElement("h2")
+  sub_bottoms.innerText=`$${total*0.82}`
+  sub_bottom.append(sub_bottoms)
 
-  if (cuponApply) {
-    sub_bottom.innerHTML = `<span>USD</span> $${Number(sbTotal).toFixed(2)}`;
-  } 
-  else {
-    sub_bottom.innerHTML = `<span>USD</span> $${Number(subTotal).toFixed(2)}`;
-  }
+  let div=document.createElement("div")
+    div.id="cartpagediv"
+    let cartimg=document.createElement("img")
+    cartimg.src=el.image
+    cartimg.id="cartimgid"
+    let cartimgdiv=document.createElement("div")
+    cartimgdiv.append(cartimg)
+    cartimgdiv.id="cartimgdiv"
+    let name=document.createElement("h3")
+    name.innerText=el.name
+    name.id="cartname"
+
+    div.append(cartimgdiv,name)
+    productlist.append(div)
+})
+
 };
-displaySubTotal();
+displaySubTotal(cart_items);
 
 
 
@@ -86,11 +106,11 @@ let form = document.querySelector("form");
 let checkoutFunction = (event) => {
   event.preventDefault();
 
-  let elements = cart_items.filter((ele, index) => {
-    if (loginUser.email == ele.email) {
-      return ele;
-    }
-  });
+  // let elements = cart_items.filter((ele, index) => {
+  //   if (loginUser.email == ele.email) {
+  //     return ele;
+  //   }
+  // });
 
 
   let email_mobile = form.emailmobile.value;
