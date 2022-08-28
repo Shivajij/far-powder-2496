@@ -6,10 +6,10 @@
 // footerContainer.innerHTML = footer();
 
 // home redirect
-let logo = document.getElementById("logo");
-logo.addEventListener("click", () => {
-  window.location.href = "index.html";
-});
+// let logo = document.getElementById("logo");
+// logo.addEventListener("click",() => {
+//   window.location.href = "./index.html";
+// });
 
 //cart item count
 let cart_items = JSON.parse(localStorage.getItem("productofcart")) || [];
@@ -18,11 +18,12 @@ let sumCount = 0;
 
 let displayCartCount = () => {
   let cart_items = JSON.parse(localStorage.getItem("productofcart")) || [];
+  console.log(cart_items)
   let loginUser = JSON.parse(localStorage.getItem("loginUser")) || null;
   let total_cart_item = document.getElementById("total-cart-item");
-  let sumCount = 0;
+  // let sumCount = 0;
   if (loginUser == null) {
-    total_cart_item.innerText = sumCount;
+     total_cart_item.innerText = sumCount;
   } else {
     if (cart_items.length > 0) {
       let elements = cart_items.filter((ele) => {

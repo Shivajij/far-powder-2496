@@ -39,7 +39,7 @@ document.getElementById("footerstart").innerHTML=footer()
      }
    
      #vlaidate() {
-       if (this.password.length > 6 && this.password.includes("@")) {
+       if (this.password.length > 6 && this.password.includes("@","!","#","$","%")) {
          return true;
        } else {
          return false;
@@ -72,7 +72,7 @@ document.getElementById("footerstart").innerHTML=footer()
          alert("Signup sucessfull");
          signupdataLS.push(user);
          localStorage.setItem("signupdata", JSON.stringify(signupdataLS));
-        //  window.location.href="login.html"
+          window.location.href="./login.html"
        } else {
          alert("user already exisit");
        }
@@ -81,6 +81,4 @@ document.getElementById("footerstart").innerHTML=footer()
      }
     
    }
-   
-   
    document.querySelector('#signin').addEventListener("click",signupFun);

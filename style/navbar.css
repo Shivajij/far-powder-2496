@@ -247,3 +247,7 @@
   #newsletter{
     margin-top: -10px;
   }
+  .navbar-linked{
+    text-decoration: none;
+    color: gray;
+  }

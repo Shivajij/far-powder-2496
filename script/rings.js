@@ -48,7 +48,7 @@ let append= (Rings) => {
 
     card.addEventListener("click", () => {
       localStorage.setItem("productDetails", JSON.stringify(el));
-      window.location.href = "#";//add link sadik
+      window.location.href = "./page2.html";
     });
 
     let love_btn = document.createElement("button");

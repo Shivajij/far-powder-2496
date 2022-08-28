@@ -37,7 +37,8 @@ let item_append = (data) => {
     product_box.setAttribute("class", "card");
     //   add link
     product_box.onclick=()=>{
-        window.location.href="page2.html"
+      
+        window.location.href=""
     }
     product_box.addEventListener("mouseover", (e) => {
       img.src = el.hovimage;
@@ -96,7 +97,7 @@ let social_img_append = (data) => {
     let div = document.createElement("div");
     //  add link
     div.onclick=()=>{
-      window.location.href="./shop_all.html"
+      window.location.href="shop_all.html"
     }
 
     let img = document.createElement("img");
