@@ -1,0 +1,302 @@
+
+    #cont1{
+       width: 80%;
+       margin: auto;
+       display: flex;
+        height: 1200px;
+     
+    }
+    #chil1{
+     height: 100%;
+       width: 60%;
+       overflow-y:scroll;
+       /* overflow-y:auto; */
+       scrollbar-width: thin;
+  
+}
+::-webkit-scrollbar {
+   width: 2em;
+   height: 2em
+    }
+
+    #chil2{
+     height: 100%;
+       width: 40%;
+       display: grid;
+       justify-content: center;
+       align-items: center;
+       color: grey;
+    }
+    #gchi1{
+    height: 55%;
+    width: 100%;
+    }
+    #gchi1 img{
+       width: 100%;
+       height: 100%;
+    }
+    #gchi3 img{
+       width: 100%;
+       height: 100%;
+    }
+    #gchi2{
+       height: 45%;
+    width: 100%;
+display: flex;
+    }
+    #ggchi1{
+       height: 100%;
+       width: 50%;
+    }
+    #ggchi2 {
+       width: 50%;
+    }
+ #ggchi1>img{
+   width: 100%;
+       height: 100%;
+ }
+ #ggchi2>img{
+   width: 100%;
+    height: 100%;
+ }
+ #chil2>img{
+width: 60px;
+ }
+ .star,.sta{
+   font-size: 2rem;
+   color: #ff9800;
+   background-color: unset;
+   border: none;
+ }
+ #stars:hover,.sta:hover,.star:hover{
+   cursor: pointer;
+ }
+ #stars{
+   display: flex;
+   font-style:oblique;
+   color: rgb(109, 107, 107);
+ }
+ #quadiv{
+   display: flex;
+ }
+ #wishlist{
+border: 1px solid rgb(57, 2, 2);
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+ }
+ #wishlist>img{
+   width: 6%;
+   height:50% ;
+ }
+ #addcart{
+   border: solid 1px rgb(42, 1, 1);
+   display: flex;
+justify-content: center;
+align-items: center;
+/* width:80% ; */
+height: 55px;
+color: black;
+
+ }
+ #afterpay{
+   display: flex;
+   /* border: 1px solid gray; */
+   justify-content: center;
+   align-items: center;
+   color: grey;
+ }
+ #afterpay>button{
+  background-color: aquamarine;
+  border-radius: 10px;
+  border: none;
+  height: 20px;
+  font-style:italic;
+  font-weight: 700;
+ }
+ #buynow{
+   background-color: black;
+   color: antiquewhite;
+   height: 55px;
+   width: 100%;
+   cursor: pointer;
+ }
+ #carwishbuy{
+   display: grid;
+   gap: 10px;
+   cursor: pointer;
+ }
+ #quadiv{
+   border:solid 1px gray;
+   width: 50%;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 10px;
+ }
+ #quadiv>button{
+   border: none;
+   width: 35%;
+ }
+ #quadiv>button:hover{
+   cursor: pointer;
+ }
+ #question{
+ display: flex;
+ }
+ #question>img{
+   width: 20px; 
+ }
+
+
+ #wishdiv{
+   padding: 10px;
+   border: solid 1px gray;
+   position:fixed;
+   right: 0px;
+   top: 50%;
+   transform: rotate(270deg);
+   border-radius:20px 20px 0px 0px;
+   width: 110px;
+   height: 20px;
+   display: flex;
+   justify-content:space-between;
+   align-items: center;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+   
+ }
+ #wishdiv>img{
+   width: 26px;
+   transform: rotate(90deg);
+ }
+ #wishdiv:hover{
+   cursor: pointer;
+ }
+  
+
+
+ #cont2{
+     width: 80%;
+     margin: auto;
+ }
+ #reviewsbtt{
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+ }
+ #reviewsbtt>button{
+  height: 50px;
+  width: 12%;
+  border-color: #dc8504;
+ }
+
+ #reviewsbtt>button:nth-child(1){
+     color: #dc8504;
+ }
+ #reviewsbtt>button:nth-child(2){
+     color: #e7e1d8;
+     background-color: #dc8504;
+ }
+ #freeship{
+     margin-left: 20%;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     color: gray;
+ }
+ #revques{
+     display:flex ;
+     gap: 10px;
+ }
+ #reviewsbtt>button:hover{
+  cursor: pointer;
+ }
+ #revques h3:hover{
+ cursor: pointer;
+ }
+ #inputrevie{
+     width: 100%;
+     height: 70px;
+ }
+ #butpost{
+     width: 50px;
+     height: 40px;
+     background-color: #b97207;
+     color: #e7e1d8;
+     border-radius: 7px;
+     display:block;
+     cursor: pointer;
+ }
+ #butpostdiv{
+     display: flex;
+     justify-content: end;
+   
+ }
+ #divposted{
+   background-color: #dff0d8;
+   height: 30px;
+   text-align: center;
+ }
+ #divposted>h3{
+   font-family:Arial, Helvetica, sans-serif;
+color: gray;
+   font-weight: 100;
+ }
+ #bttchil1{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 10px;
+ }
+ #bttchil1 img{
+  width: 100%;
+ }
+#lastcontai{
+width: 80%;
+margin: auto;
+}
+#lastcontai>h2{
+font-family:sans-serif ;
+color: gray;
+}
+
+#wishlistdiv{
+width:20% ;
+height: 100%;
+background-color:white;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+position: fixed;
+right: 0%;
+top: 0%;
+padding-left: 15px;
+text-align: center;
+justify-content: center;
+border-radius: 10px;
+}
+#wishlistdiv>img{
+width: 50px;
+
+}
+#wishlistdiv>button{
+margin: auto;
+height: 40px;
+background-color: #b97207;
+}
+#childdiv2{
+display:flex;
+gap: 10px;
+margin: auto;
+}
+#childdiv2>img{
+width: 80px;
+}
+#c11hil{
+display: flex;
+
+justify-content: center;
+}
+#c11hil>img{
+width: 50px;
+}
+#canceldiv{
+text-align: end;
+color: gray;
+cursor: pointer;
+}
