@@ -163,12 +163,12 @@ let checkoutFunction = (event) => {
         let randNum = Math.floor(Math.random() * 100000 + 1);
         let newOrders = {
           order_id: randNum,
-          email: loginUserLS.email,
+          // email: loginUserLS.email,
           shippingAddress: shippingAddress,
           orderItems: cart_items,
         };
-        orders.push(newOrders);
-        localStorage.setItem("orders", JSON.stringify(orders));
+        // orders.push(newOrders);
+        // localStorage.setItem("orders", JSON.stringify(orders));
         localStorage.removeItem("#");
         localStorage.removeItem("discountAmount");
         localStorage.removeItem("cuponApply");
@@ -181,8 +181,8 @@ let checkoutFunction = (event) => {
         flag = false;
       }
       if (flag == false) continue;
-      if (flag) {
-        window.location.href = "index.html";
+      else if (flag==true) {
+        window.location.href = "./index.html";
         break;
       }
     }
