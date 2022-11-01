@@ -66,17 +66,13 @@ Here is the students name & there assign task:-
                Nitesh has completed the HTML navbar part and homepage in 3 days
                              
         
-- SARTHAK :- Platform & Courses - 
-                              3rd may : start with platform first box (ways to upskill) HTML.
-                              4th, 5th may : completed the HTML and css both part of 1st box.
-                              6th may : completed the another part (skills for & course library).
-                              7th, 8th may : completed the last treading part of html.
-                              9th may : complete entire part.
+- Sadipe :- cart page 
+                 He also complated in 3 days        
 
 - Waris :- necklace & Ring part - 
                     He also complated in 3 days
 
-- SHIVAJI :- Card page,Checkout page & Payment page -
+- SHIVAJI :- Checkout page & Payment page -
                        We all completed the project in 3 days
                                     
 - Shital :- Signin/Login - 
